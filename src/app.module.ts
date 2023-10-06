@@ -5,6 +5,8 @@ import { AdminModule } from './admin/admin.module';
 import { UserModule } from './user/user.module';
 import { Admin } from './admin/models/admin';
 import { JwtModule } from '@nestjs/jwt';
+import { Calculator } from './admin/models/calculator';
+import { Tariff } from './admin/models/tariff';
 
 @Module({
   imports: [
@@ -16,7 +18,7 @@ import { JwtModule } from '@nestjs/jwt';
       username: process.env.POSTGRES_USERNAME,
       password: process.env.POSTGRES_PASS,
       database: process.env.POSTGRES_DATABASE,
-      entities: [Admin],
+      entities: [Admin, Calculator, Tariff],
       synchronize: true,
       autoLoadEntities: true,
     }),

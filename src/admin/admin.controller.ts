@@ -21,7 +21,7 @@ export class AdminController {
   @ApiTags('Admin')
   @HttpCode(HttpStatus.OK)
   @Post('login')
-  login(@Body() request: LoginAdminRequest): Promise<LoginAdminResponse> {
-    return this.adminService.login(request);
+  async login(@Body() request: LoginAdminRequest): Promise<LoginAdminResponse> {
+    return await this.adminService.login(request);
   }
 }

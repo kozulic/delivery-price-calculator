@@ -9,6 +9,7 @@ async function bootstrap() {
     .setTitle('Delivery Price Calculator')
     .setDescription('Delivery Price Calculator API')
     .setVersion('1.0')
+    .addBearerAuth()
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
