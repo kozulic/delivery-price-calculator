@@ -1,18 +1,14 @@
 import { ApiProperty } from '@nestjs/swagger';
 
-export class RegisterAdminRequest {
+export class BaseAdminRequest {
   @ApiProperty()
   email: string;
   @ApiProperty()
   password: string;
 }
+export class RegisterAdminRequest extends BaseAdminRequest {}
 
-export class LoginAdminRequest {
-  @ApiProperty()
-  email: string;
-  @ApiProperty()
-  password: string;
-}
+export class LoginAdminRequest extends BaseAdminRequest {}
 
 export interface LoginAdminResponse {
   accessToken: string;

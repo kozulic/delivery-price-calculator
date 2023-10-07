@@ -15,6 +15,7 @@ import {
   RegisterAdminRequest,
 } from './models/admin.dto';
 import { JwtService } from '@nestjs/jwt';
+import { validateAdminRequest } from './admin-request-validator';
 
 @Injectable()
 export class AdminService {
@@ -25,6 +26,8 @@ export class AdminService {
   ) {}
 
   async register(request: RegisterAdminRequest): Promise<void> {
+    validateAdminRequest(request);
+
     const salt = await bcrypt.genSalt();
     const hashedPassword = await bcrypt.hash(request.password, salt);
 
@@ -47,6 +50,8 @@ export class AdminService {
   }
 
   async login(request: LoginAdminRequest): Promise<LoginAdminResponse> {
+    validateAdminRequest(request);
+
     const admin = await this.adminRepository.findOne({
       where: { email: request.email },
     });

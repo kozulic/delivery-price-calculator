@@ -17,7 +17,4 @@ export class Tariff {
 
   @ManyToOne(() => Calculator, (calculator) => calculator.tariffs)
   calculator: Calculator;
-
-  @Column()
-  calculatorId: number;
 }

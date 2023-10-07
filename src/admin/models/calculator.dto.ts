@@ -1,6 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 
-class TariffDto {
+export class TariffDto {
   @ApiProperty()
   low: number;
 

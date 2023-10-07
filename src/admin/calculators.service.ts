@@ -7,6 +7,7 @@ import {
   UpdateCalculatorRequest,
 } from './models/calculator.dto';
 import { mapCalculatorRequest } from './calculator-mapper';
+import { validateCalculatorRequest } from './calculator-request-validator';
 
 @Injectable()
 export class CalculatorsService {
@@ -16,12 +17,16 @@ export class CalculatorsService {
   ) {}
 
   async create(request: CreateCalculatorRequest): Promise<void> {
+    validateCalculatorRequest(request);
+
     const calculator = mapCalculatorRequest(request);
 
     await this.calculatorRepository.save(calculator);
   }
 
   async update(id: number, request: UpdateCalculatorRequest): Promise<void> {
+    validateCalculatorRequest(request);
+
     const calculator = await this.calculatorRepository.findOne({
       where: { id },
       relations: ['tariffs'],
