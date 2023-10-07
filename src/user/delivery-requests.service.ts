@@ -33,7 +33,7 @@ export class DeliveryRequestsService {
       relations: ['tariffs'],
     });
 
-    if (!calculators) {
+    if (!calculators || calculators?.length === 0) {
       throw new NotFoundException('No calculator is found.');
     }
 
