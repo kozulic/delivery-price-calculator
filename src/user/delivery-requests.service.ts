@@ -6,11 +6,11 @@ import { CreateDeliveryRequest } from './models/delivery-request.dto';
 import { mapDeliveryRequest } from './delivery-request-mapper';
 import { DeliveryRequest } from './models/delivery-request';
 import { validateDeliveryRequest } from './delivery-price-request-validator';
-import { Calculator } from 'src/admin/models/calculator';
+import { Calculator } from '../admin/models/calculator';
 import {
   buildConfirmationMessage,
   calculatePrice,
-} from 'src/shared/calculation-utils';
+} from '../shared/calculation-utils';
 
 @Injectable()
 export class DeliveryRequestsService {

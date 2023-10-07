@@ -1,6 +1,6 @@
 import { BadRequestException } from '@nestjs/common';
 import { BaseAdminRequest } from './models/admin.dto';
-import { isEmailValid, isStringOutOfRange } from 'src/shared/validation-utils';
+import { isEmailValid, isStringOutOfRange } from '../shared/validation-utils';
 
 export function validateAdminRequest(request: BaseAdminRequest) {
   const { email, password } = request;

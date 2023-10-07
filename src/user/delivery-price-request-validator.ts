@@ -4,7 +4,7 @@ import {
   isEmailValid,
   isNumberOutOfRange,
   isStringOutOfRange,
-} from 'src/shared/validation-utils';
+} from '../shared/validation-utils';
 
 export function validateDeliveryRequest(request: CreateDeliveryRequest) {
   const {

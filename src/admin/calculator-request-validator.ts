@@ -1,5 +1,5 @@
 import { BadRequestException } from '@nestjs/common';
-import { isNumberOutOfRange } from 'src/shared/validation-utils';
+import { isNumberOutOfRange } from '../shared/validation-utils';
 import { BaseCalculatorRequest, TariffDto } from './models/calculator.dto';
 
 export function validateCalculatorRequest(request: BaseCalculatorRequest) {
@@ -18,8 +18,10 @@ export function validateCalculatorRequest(request: BaseCalculatorRequest) {
     ] = `[${additionalPackagePrice}] is out of range (<1, 1000>).`;
   }
 
-  for (const [index, tariff] of tariffs.entries()) {
-    validateTariff(tariff, index, errors);
+  if (tariffs) {
+    for (const [index, tariff] of tariffs.entries()) {
+      validateTariff(tariff, index, errors);
+    }
   }
 
   if (Object.keys(errors).length > 0) {

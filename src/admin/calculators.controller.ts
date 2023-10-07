@@ -15,7 +15,7 @@ import {
   CreateCalculatorRequest,
   UpdateCalculatorRequest,
 } from './models/calculator.dto';
-import { AuthGuard } from 'src/shared/auth.guard';
+import { AuthGuard } from '../shared/auth.guard';
 
 @Controller('calculators')
 export class CalculatorsController {

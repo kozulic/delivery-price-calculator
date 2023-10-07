@@ -1,6 +1,6 @@
-import { Calculator } from 'src/admin/models/calculator';
-import { Tariff } from 'src/admin/models/tariff';
-import { DeliveryRequest } from 'src/user/models/delivery-request';
+import { Calculator } from '../admin/models/calculator';
+import { Tariff } from '../admin/models/tariff';
+import { DeliveryRequest } from '../user/models/delivery-request';
 
 export function calculatePrice(
   calculator: Calculator,
